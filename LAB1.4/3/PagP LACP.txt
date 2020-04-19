@@ -21,9 +21,12 @@ S3(config-if)# switchport mode trunk
 S3(config-if)# switchport trunk native vlan 99
 
 Проверить
+show run interface f0/3
+show interfaces f0/3 switchport
+
 show interfaces trunk
 show spanning-tree
-show etherchannel summary
+do
 
 
 Настройте LACP между S1 и S2.
