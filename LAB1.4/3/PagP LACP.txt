@@ -1,0 +1,44 @@
+
+Настройте PAgP на S1 и S3
+S1(config)# interface range f0/3-4
+S1(config-if-range)# channel-group 1 mode desirable
+Creating a port-channel interface Port-channel 1
+S1(config-if-range)# no shutdown
+
+S3(config)# interface range f0/3-4
+S3(config-if-range)# channel-group 1 mode auto
+Creating a port-channel interface Port-channel 1
+S3(config-if-range)# no shutdown
+
+S1(config)# interface port-channel 1
+!!!!! switchport trunk encapsulation dot1q
+S1(config-if)# switchport mode trunk
+S1(config-if)# switchport trunk native vlan 99
+
+S3(config)# interface port-channel 1
+!!!!! switchport trunk encapsulation dot1q
+S3(config-if)# switchport mode trunk
+S3(config-if)# switchport trunk native vlan 99
+
+Проверить
+show interfaces trunk
+show spanning-tree
+show etherchannel summary
+
+
+Настройте LACP между S1 и S2.
+S1(config)# interface range f0/1-2
+switchport trunk encapsulation dot1q
+S1(config-if-range)# switchport mode trunk
+S1(config-if-range)# switchport trunk native vlan 99
+S1(config-if-range)# channel-group 2 mode active
+Creating a port-channel interface Port-channel 2
+S1(config-if-range)# no shutdown
+
+S2(config)# interface range f0/1-2
+switchport trunk encapsulation dot1q
+S2(config-if-range)# switchport mode trunk
+S2(config-if-range)# switchport trunk native vlan 99
+S2(config-if-range)# channel-group 2 mode passive
+Creating a port-channel interface Port-channel 2
+S2(config-if-range)# no shutdown
