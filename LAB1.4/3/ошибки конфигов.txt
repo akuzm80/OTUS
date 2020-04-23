@@ -1,6 +1,9 @@
-S3
-1) channel-group 2 mode auto  # не та группа назначена и с двух сторон desirable в сторону S1
+interface range e0/0-1
+no channel-group 1 mode active
+channel-group 1 mode desirable
 
-S1
-1) switchport trunk encapsulation dot1q
-   switchport mode trunk      #int po2 выставлен режим access 
+interface range e0/2-3
+switchport trunk encapsulation dot1q
+interface Port-channel2
+switchport trunk encapsulation dot1q
+switchport mode trunk

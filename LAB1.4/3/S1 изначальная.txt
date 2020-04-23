@@ -1,5 +1,5 @@
 hostname S1
-interface range e0/03, e1/3
+interface range e0/0-3, e1/0-3
 shutdown
 exit
 enable secret class
@@ -33,6 +33,7 @@ interface e1/1
 interface vlan 99
  ip address 192.168.1.11 255.255.255.0
 interface port-channel 1
+ switchport trunk encapsulation dot1q
  switchport trunk native vlan 99
  switchport mode trunk
 interface port-channel 2
