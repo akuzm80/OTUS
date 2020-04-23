@@ -1,9 +1,6 @@
-interface range e0/0-1
-no channel-group 1 mode active
-channel-group 1 mode desirable
 
-interface range e0/2-3
-switchport trunk encapsulation dot1q
-interface Port-channel2
-switchport trunk encapsulation dot1q
-switchport mode trunk
+show interfaces trunk
+
+show etherchannel summary
+
+sh etherchannel port-channel
