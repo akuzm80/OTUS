@@ -1,0 +1,19 @@
+router ospf 1
+network 192.168.23.0 0.0.0.3 area 3
+network 192.168.4.0 0.0.0.255 area 3
+network 192.168.5.0 0.0.0.255 area 3
+
+router ospf 1
+passive-interface lo4
+passive-interface lo5
+
+
+int s1/0
+ip ospf message-digest-key 1 md5 Cisco123
+router ospf 1
+area 0 authentication message-digest
+
+int s1/1
+ip ospf message-digest-key 1 md5 Cisco123
+router ospf 1
+area 3 authentication message-digest
