@@ -1,0 +1,34 @@
+Получение IP адреса в Virtual PC
+
+Для получения адреса от DHCP сервера ввести ip dhcp и дождаться выполнения команды:
+VPCS> ip dhcp
+DDORA IP 192.168.1.2/24 GW 192.168.1.1
+Для присвоения статического адреса ввести команду ip и указать адрес, маску и шлюз по умолчанию:
+VPCS> ip 192.168.1.3/24 192.168.1.1
+Checking for duplicate address...
+PC1 : 192.168.1.3 255.255.255.0 gateway 192.168.1.1
+Для получения информации об IP адресе ввести show ip:
+VPCS> show ip
+NAME        : VPCS[1]
+IP/MASK     : 192.168.1.3/24
+GATEWAY     : 192.168.1.1
+DNS         :
+MAC         : 00:50:79:66:68:02
+LPORT       : 20000
+RHOST:PORT  : 127.0.0.1:30000
+MTU         : 1500
+Проверка доступности узла
+VPCS> ping 192.168.1.3
+84 bytes from 192.168.1.3 icmp_seq=1 ttl=64 time=0.222 ms
+84 bytes from 192.168.1.3 icmp_seq=2 ttl=64 time=0.357 ms
+84 bytes from 192.168.1.3 icmp_seq=3 ttl=64 time=0.484 ms
+84 bytes from 192.168.1.3 icmp_seq=4 ttl=64 time=0.325 ms
+84 bytes from 192.168.1.3 icmp_seq=5 ttl=64 time=0.353 ms
+Просмотр arp таблицы
+VPCS> arp
+00:50:79:66:68:02  192.168.1.3 expires in 52 seconds
+aa:bb:cc:00:03:10  192.168.1.1 expires in 90 seconds
+Сохранение параметров
+VPCS> save
+Saving startup configuration to startup.vpc
+.  done
