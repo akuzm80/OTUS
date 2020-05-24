@@ -1,8 +1,9 @@
 R3#sh run
 Building configuration...
 
-Current configuration : 1353 bytes
+Current configuration : 1567 bytes
 !
+! Last configuration change at 03:55:04 EET Sun May 24 2020
 version 15.2
 service timestamps debug datetime msec
 service timestamps log datetime msec
@@ -77,11 +78,13 @@ interface Ethernet0/3
  shutdown
 !
 interface Serial1/0
+ bandwidth 64
  ip address 10.3.3.2 255.255.255.252
  serial restart-delay 0
  clock rate 128000
 !
 interface Serial1/1
+ bandwidth 2000
  ip address 10.2.2.1 255.255.255.252
  serial restart-delay 0
  clock rate 128000
@@ -95,6 +98,13 @@ interface Serial1/3
  no ip address
  shutdown
  serial restart-delay 0
+!
+!
+router eigrp 10
+ network 10.2.2.0 0.0.0.3
+ network 10.3.3.0 0.0.0.3
+ network 192.168.3.0
+ passive-interface Ethernet0/0
 !
 ip forward-protocol nd
 !

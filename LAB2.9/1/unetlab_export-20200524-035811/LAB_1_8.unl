@@ -13,7 +13,7 @@
         <interface id="1" type="serial" name="s1/0" remote_id="1" remote_if="1"/>
         <interface id="17" type="serial" name="s1/1" remote_id="3" remote_if="17"/>
       </node>
-      <node id="3" name="R3" type="iol" template="iol" image="L3-ADVENTERPRISEK9-M-15.2-M5.3.bin" ethernet="1" nvram="1024" ram="1024" serial="1" console="" delay="0" icon="Router.png" config="0" left="423" top="273">
+      <node id="3" name="R3" type="iol" template="iol" image="L3-ADVENTERPRISEK9-M-15.2-M5.3.bin" ethernet="1" nvram="1024" ram="1024" serial="1" console="" delay="0" icon="Router.png" config="0" left="423" top="270">
         <interface id="0" name="e0/0" type="ethernet" network_id="2"/>
         <interface id="1" type="serial" name="s1/0" remote_id="1" remote_if="17"/>
         <interface id="17" type="serial" name="s1/1" remote_id="2" remote_if="17"/>
