@@ -1,0 +1,30 @@
+no ip domain-lookup
+
+int E0/0
+ip address 192.168.2.1 255.255.255.0
+no sh
+int S1/0
+ip address 192.168.12.2 255.255.255.252
+clock rate 128000
+no sh
+int S1/1
+ip address 192.168.23.1 255.255.255.252
+clock rate 128000
+no sh
+int Lo1
+ip address 192.168.22.1 255.255.255.252
+no sh
+
+Hostname R2
+line con 0
+password cisco
+login
+line vty 0 4
+password cisco
+login
+enable secret class
+line con 0
+logging synchronous
+banner motd #Unauthorized access to this device is prohibited!#
+end
+copy running-config startup-config
