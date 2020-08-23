@@ -1,0 +1,19 @@
+en
+conf t
+hostname R1
+no ip domain-lookup
+enable secret class
+line con 0
+password cisco
+login
+line vty 0 4
+password cisco
+login 
+service password-encryption
+banner motd “This is a secure system. Authorized Access Only!”
+line con 0
+logging synchronous
+copy running-config startup-config
+clock timezone MSK 3
+clock set 15:56:00 28 AUG 2020
+clock update-calendar
